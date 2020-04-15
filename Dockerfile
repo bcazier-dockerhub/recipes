@@ -22,4 +22,3 @@ EXPOSE 8080 8081
 ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD [ "bash", "/recipes/start.sh" ]
-
