@@ -3,7 +3,10 @@ FROM alpine:3.11
 RUN apk add bash python3 python3-dev postgresql-dev zlib-dev gcc jpeg-dev libxml2-dev libxslt-dev libc-dev git nginx
 RUN apk add --no-cache tini
 
-RUN git clone https://github.com/vabene1111/recipes/
+ADD https://api.github.com/repos/vabene1111/recipes/git/refs/heads/develop version.json
+RUN git clone -b develop https://github.com/vabene1111/recipes.git 
+
+# RUN git clone https://github.com/vabene1111/recipes/
 
 WORKDIR /recipes
 ADD ./settings.py /recipes/recipes/settings.py
